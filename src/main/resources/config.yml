@@ -1,0 +1,5 @@
+SERVERNAME: "Lobby"
+SERVER_IP: "name.network"
+SERVER_STORE: "store.name.network"
+ANNOUNCE_SERVER_STATUS: true
+DEVMODE: true
