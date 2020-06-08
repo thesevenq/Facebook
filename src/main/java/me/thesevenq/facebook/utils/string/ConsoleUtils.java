@@ -1,5 +1,6 @@
-package me.thesevenq.facebook.utils;
+package me.thesevenq.facebook.utils.string;
 
+import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.Bukkit;
 
 public class ConsoleUtils {

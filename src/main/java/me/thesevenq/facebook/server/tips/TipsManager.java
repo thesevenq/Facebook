@@ -3,7 +3,7 @@ package me.thesevenq.facebook.server.tips;
 import lombok.Getter;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.utils.FacebookUtils;
+import me.thesevenq.facebook.utils.string.FacebookUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 

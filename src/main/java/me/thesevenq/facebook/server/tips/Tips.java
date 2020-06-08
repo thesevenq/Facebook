@@ -9,25 +9,25 @@ public enum Tips {
 
     STORE(new String[]{
             "&7&m--------------------------------------------",
-            "&3&lStore",
-            "&7This is the place to enhance your player experience and also",
-            "&7to support us. We offer permanent and temporary ranks",
-            "&7cosmetics and lots of gamemode features.", "", "&e&ostore.sicaro.club",
+            "&b&lStore",
+            "&fThis is the place to enhance your player experience and also",
+            "&fto support us. We offer permanent and temporary ranks",
+            "&fcosmetics and lots of gamemode features.", "", "&e&ostore.cobalt.cf",
             "&7&m--------------------------------------------"}),
     TEAMSPEAK(new String[]{
             "&7&m--------------------------------------------",
-            "&3&lTeamSpeak",
-            "&7Come on and our TeamSpeak server if you need help!",
-            "&7There is our staff to help you for anything.",
-            "", "&e&ots.sicaro.club",
+            "&b&lTeamSpeak",
+            "&fCome on and our TeamSpeak server if you need help!",
+            "&fThere is our staff to help you for anything.",
+            "", "&e&ots.cobalt.cf",
             "&7&m--------------------------------------------"}),
     DISCORD(new String[]{
             "&7&m--------------------------------------------",
             "&3lDiscord",
-            "&7Come on and join to our Discord server to participate",
-            "&7in our giveaways and to keep up with the",
-            "&7updates coming to the server.",
-            "", "&e&odiscord.sicaro.club",
+            "&fCome on and join to our Discord server to participate",
+            "&fin our giveaways and to keep up with the",
+            "&fupdates coming to the server.",
+            "", "&b&odiscord.cobalt.cf",
             "&7&m--------------------------------------------"});
 
     private String[] text;

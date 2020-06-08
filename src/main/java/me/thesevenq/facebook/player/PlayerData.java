@@ -6,6 +6,7 @@ import com.mongodb.client.model.ReplaceOptions;
 import lombok.Getter;
 import lombok.Setter;
 import me.thesevenq.facebook.Facebook;
+import me.thesevenq.facebook.cosmetics.deathanimation.KillEffectType;
 import me.thesevenq.facebook.cosmetics.scoreboard.ScoreboardType;
 import me.thesevenq.facebook.database.DatabaseManager;
 import me.thesevenq.facebook.cosmetics.color.ColorType;
@@ -37,6 +38,7 @@ public class PlayerData {
     private NormalPrefixType prefix;
     private ColorType color;
     private ScoreboardType scoreboard;
+    private KillEffectType killEffectType;
 
     private boolean staffChat;
     private boolean frozen;
@@ -88,6 +90,9 @@ public class PlayerData {
         document.put("rewardClaimable", rewardClaimable);
         document.put("tips", tips);
 
+        if(killEffectType != null) {
+            document.put("killEffect", killEffectType.getName());
+        }
 
         if (prefix != null) {
             document.put("prefix", prefix.getName());
@@ -121,6 +126,7 @@ public class PlayerData {
         scoreboard = ScoreboardType.getByName(document.getString("scoreboard"));
         prefix = NormalPrefixType.getByName(document.getString("prefix"));
         color = ColorType.getByName(document.getString("color"));
+        killEffectType = KillEffectType.getByName(document.getString("killEffect"));
 
         staffChat = document.getBoolean("staffChat");
         frozen = document.getBoolean("frozen");

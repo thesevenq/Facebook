@@ -1,9 +1,9 @@
 package me.thesevenq.facebook.ranks;
 
 import lombok.Getter;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.Color;
-import me.thesevenq.facebook.utils.ConsoleUtils;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.ConsoleUtils;
 
 import java.util.stream.Stream;
 

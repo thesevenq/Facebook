@@ -1,4 +1,4 @@
-package me.thesevenq.facebook.utils;
+package me.thesevenq.facebook.utils.string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import me.thesevenq.facebook.utils.CC;
+import me.thesevenq.facebook.utils.string.CC;
 import org.bukkit.ChatColor;
 import org.bukkit.enchantments.Enchantment;
 

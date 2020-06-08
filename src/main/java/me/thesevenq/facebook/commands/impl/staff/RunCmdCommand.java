@@ -2,9 +2,9 @@ package me.thesevenq.facebook.commands.impl.staff;
 
 import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.database.DatabaseManager;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.Color;
-import me.thesevenq.facebook.utils.MessageUtils;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.MessageUtils;
 import org.bukkit.entity.Player;
 
 public class RunCmdCommand extends BaseCommand {

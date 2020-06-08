@@ -7,9 +7,9 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import me.thesevenq.facebook.commands.BaseCommand;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.Color;
-import me.thesevenq.facebook.utils.StringUtil;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.StringUtil;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 

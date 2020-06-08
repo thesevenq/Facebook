@@ -1,4 +1,4 @@
-package me.thesevenq.facebook.jedis;
+package me.thesevenq.facebook.database.jedis;
 
 public enum JedisAction {
 

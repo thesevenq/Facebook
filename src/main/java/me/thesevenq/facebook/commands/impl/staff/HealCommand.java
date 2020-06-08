@@ -3,8 +3,8 @@ package me.thesevenq.facebook.commands.impl.staff;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.commands.BaseCommand;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.MessageUtils;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

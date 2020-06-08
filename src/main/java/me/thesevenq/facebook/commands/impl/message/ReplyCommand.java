@@ -3,7 +3,7 @@ package me.thesevenq.facebook.commands.impl.message;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.player.events.PlayerMessageEvent;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.Color;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

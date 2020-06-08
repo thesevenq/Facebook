@@ -2,7 +2,7 @@ package me.thesevenq.facebook;
 
 import lombok.Getter;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.register.FacebookRegister;
+import me.thesevenq.facebook.utils.register.FacebookRegister;
 import org.bukkit.entity.Player;
 
 import java.text.NumberFormat;

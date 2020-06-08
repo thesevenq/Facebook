@@ -1,11 +1,9 @@
 package me.thesevenq.facebook.server.shutdown;
 
 import lombok.AllArgsConstructor;
-import me.thesevenq.facebook.Facebook;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.MessageUtils;
-import me.thesevenq.facebook.utils.TimeUtil;
-import me.thesevenq.facebook.utils.TimeUtilties;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.MessageUtils;
+import me.thesevenq.facebook.utils.time.TimeUtilties;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 

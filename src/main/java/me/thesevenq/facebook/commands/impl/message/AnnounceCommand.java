@@ -1,8 +1,8 @@
 package me.thesevenq.facebook.commands.impl.message;
 
 import me.thesevenq.facebook.commands.BaseCommand;
-import me.thesevenq.facebook.utils.Color;
-import me.thesevenq.facebook.utils.MessageUtils;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.MessageUtils;
 import org.bukkit.entity.Player;
 
 public class AnnounceCommand extends BaseCommand {

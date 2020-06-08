@@ -2,7 +2,7 @@ package me.thesevenq.facebook.player.events;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;

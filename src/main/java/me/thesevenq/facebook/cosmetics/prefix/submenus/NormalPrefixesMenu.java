@@ -6,8 +6,8 @@ import me.thesevenq.facebook.cosmetics.CosmeticsMenu;
 import me.thesevenq.facebook.cosmetics.prefix.types.NormalPrefixType;
 import me.thesevenq.facebook.player.PlayerData;
 import me.thesevenq.facebook.ranks.Rank;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.ItemBuilder;
 import me.thesevenq.facebook.utils.menu.Button;
 import me.thesevenq.facebook.utils.menu.ButtonSound;
@@ -90,12 +90,15 @@ public class NormalPrefixesMenu extends PaginatedMenu {
                 public ItemStack getButtonItem(Player player) {
                     ItemBuilder item = new ItemBuilder(Material.WOOL).durability(10);
                     List<String> lore = new ArrayList<>();
-                    lore.add(CC.GRAY + CC.STRIKE_THROUGH + "-----------------------------------");
+                    lore.add("");
+                    Arrays.stream(prefixType.getDescription()).map((descritpion) -> {
+                        return CC.GRAY + descritpion;
+                    }).forEach(lore::add);
+                    lore.add("");
                     lore.add(CC.B_PRIMARY + "Chat Preview&7:");
                     lore.add(prefixType.getStyle() + data.getRank().getPrefix() + data.getRank().getColor() + player.getName());
                     lore.add("");
                     lore.add(CC.GREEN + "Click here to equip this prefix.");
-                    lore.add(CC.GRAY + CC.STRIKE_THROUGH + "-----------------------------------");
 
                     return item.name(CC.PRIMARY + prefixType.getName()).lore(Color.translate(lore)).build();
                 }

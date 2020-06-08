@@ -1,5 +1,6 @@
 package me.thesevenq.facebook.utils;
 
+import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;

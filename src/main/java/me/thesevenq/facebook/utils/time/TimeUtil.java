@@ -1,4 +1,4 @@
-package me.thesevenq.facebook.utils;
+package me.thesevenq.facebook.utils.time;
 
 import org.apache.commons.lang.time.DurationFormatUtils;
 

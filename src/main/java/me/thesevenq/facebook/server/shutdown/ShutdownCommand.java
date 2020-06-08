@@ -5,8 +5,8 @@ import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.server.events.ServerShutdownCancelEvent;
 import me.thesevenq.facebook.server.events.ServerShutdownScheduleEvent;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.TimeUtil;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.time.TimeUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 

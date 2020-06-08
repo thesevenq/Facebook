@@ -18,6 +18,7 @@ import me.thesevenq.facebook.server.nms.hologram.HologramCommand;
 import me.thesevenq.facebook.server.nms.npc.NPCCommand;
 import me.thesevenq.facebook.player.coins.CoinsCommand;
 import me.thesevenq.facebook.server.shutdown.ShutdownCommand;
+import me.thesevenq.facebook.utils.register.FacebookRegister;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -62,14 +63,18 @@ public class CommandManager {
         commands.add(new MessageCommand());
         commands.add(new ReplyCommand());
         commands.add(new TogglePMCommand());
+        commands.add(new GodCommand());
 
         commands.add(new HealCommand());
+        commands.add(new ServerStatusCommand());
+        commands.add(new LagCommand());
+        commands.add(new AuthorCommand());
 
         commands.add(new GrantCommand());
         commands.add(new GrantsCommand());
         commands.add(new SetRankCommand());
         commands.add(new RankListCommand());
 
-        commands.forEach(command -> Facebook.getInstance().getCommandMap().register("core", command));
+        commands.forEach(command -> FacebookRegister.getInstance().getCommandMap().register("core", command));
     }
 }

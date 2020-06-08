@@ -1,9 +1,9 @@
-package me.thesevenq.facebook.utils.clickable;
+package me.thesevenq.facebook.utils.string.clickable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.Color;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;

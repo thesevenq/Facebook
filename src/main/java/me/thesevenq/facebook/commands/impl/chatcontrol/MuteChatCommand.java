@@ -1,12 +1,9 @@
 package me.thesevenq.facebook.commands.impl.chatcontrol;
 
 import lombok.Getter;
-import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.commands.BaseCommand;
-import me.thesevenq.facebook.database.DatabaseManager;
-import me.thesevenq.facebook.jedis.JedisPublisher;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.utils.CC;
+import me.thesevenq.facebook.utils.string.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

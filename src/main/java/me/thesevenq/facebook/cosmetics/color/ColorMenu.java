@@ -6,8 +6,8 @@ import me.thesevenq.facebook.cosmetics.CosmeticsMenu;
 import me.thesevenq.facebook.cosmetics.prefix.types.NormalPrefixType;
 import me.thesevenq.facebook.player.PlayerData;
 import me.thesevenq.facebook.ranks.Rank;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.ItemBuilder;
 import me.thesevenq.facebook.utils.menu.Button;
 import me.thesevenq.facebook.utils.menu.ButtonSound;
@@ -91,12 +91,11 @@ public class ColorMenu extends PaginatedMenu {
                     ItemStack dye = new ItemStack(Material.INK_SACK);
                     ItemBuilder item = new ItemBuilder(dye).durability(10);
                     List<String> lore = new ArrayList<>();
-                    lore.add(CC.GRAY + CC.STRIKE_THROUGH + "-----------------------------------");
+                    lore.add("");
                     lore.add(CC.B_PRIMARY + "Chat Preview&7:");
                     lore.add((data.getPrefix() == null ? "" : data.getPrefix().getStyle()) + " " + data.getRank().getPrefix() + colorType.getColor() + player.getName());
                     lore.add("");
                     lore.add(CC.GREEN + "Click here to equip this color.");
-                    lore.add(CC.GRAY + CC.STRIKE_THROUGH + "-----------------------------------");
 
                     return item.name(colorType.getColor() + colorType.getName()).lore(Color.translate(lore)).build();
                 }

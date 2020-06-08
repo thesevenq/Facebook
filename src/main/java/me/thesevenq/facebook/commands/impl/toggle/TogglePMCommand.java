@@ -2,7 +2,7 @@ package me.thesevenq.facebook.commands.impl.toggle;
 
 import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.entity.Player;
 
 public class TogglePMCommand extends BaseCommand {

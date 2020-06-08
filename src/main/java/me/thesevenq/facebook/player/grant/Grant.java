@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import me.thesevenq.facebook.ranks.Rank;
-import me.thesevenq.facebook.utils.TimeFormatUtils;
+import me.thesevenq.facebook.utils.time.TimeFormatUtils;
 
 @Getter @Setter
 @AllArgsConstructor

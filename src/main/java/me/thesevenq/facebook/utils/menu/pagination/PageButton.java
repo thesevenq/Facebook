@@ -1,7 +1,7 @@
 package me.thesevenq.facebook.utils.menu.pagination;
 
 import lombok.AllArgsConstructor;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.ItemBuilder;
 import me.thesevenq.facebook.utils.menu.Button;
 import org.bukkit.Material;
@@ -17,7 +17,7 @@ public class PageButton extends Button {
 
 	@Override
 	public ItemStack getButtonItem(Player player) {
-		ItemBuilder item = new ItemBuilder(Material.GOLD_NUGGET);
+		ItemBuilder item = new ItemBuilder(Material.LEVER);
 
 		if (this.hasNext(player)) {
 			if (mod > 0) {

@@ -2,7 +2,7 @@ package me.thesevenq.facebook.commands.impl.staff;
 
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.commands.BaseCommand;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.player.Permission;
 import org.bukkit.entity.Player;
 

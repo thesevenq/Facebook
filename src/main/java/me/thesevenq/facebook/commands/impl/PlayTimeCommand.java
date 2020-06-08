@@ -1,8 +1,8 @@
 package me.thesevenq.facebook.commands.impl;
 
 import me.thesevenq.facebook.commands.BaseCommand;
-import me.thesevenq.facebook.utils.Color;
-import me.thesevenq.facebook.utils.Msg;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.Msg;
 import org.apache.commons.lang.time.DurationFormatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Statistic;

@@ -1,4 +1,4 @@
-package me.thesevenq.facebook.utils.clickable;
+package me.thesevenq.facebook.utils.string.clickable;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.*;

@@ -1,4 +1,4 @@
-package me.thesevenq.facebook.utils;
+package me.thesevenq.facebook.utils.string;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.io.ByteArrayDataOutput;
@@ -8,6 +8,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.player.events.PlayerSwitchServerEvent;
+import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.string.DefaultFontInfo;
 import org.bson.Document;
 import org.bukkit.Bukkit;

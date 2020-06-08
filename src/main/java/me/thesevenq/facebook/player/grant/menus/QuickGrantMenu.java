@@ -3,25 +3,22 @@ package me.thesevenq.facebook.player.grant.menus;
 import lombok.RequiredArgsConstructor;
 import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.ranks.Rank;
-import me.thesevenq.facebook.ranks.procedure.GrantProcedure;
-import me.thesevenq.facebook.ranks.procedure.GrantProcedureStage;
 import me.thesevenq.facebook.utils.*;
 import me.thesevenq.facebook.utils.menu.Button;
 import me.thesevenq.facebook.utils.menu.buttons.BackButton;
 import me.thesevenq.facebook.utils.menu.buttons.CloseButton;
 import me.thesevenq.facebook.utils.menu.pagination.PageButton;
 import me.thesevenq.facebook.utils.menu.pagination.PaginatedMenu;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 public class QuickGrantMenu extends PaginatedMenu {

@@ -2,7 +2,7 @@ package me.thesevenq.facebook.utils.menu;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

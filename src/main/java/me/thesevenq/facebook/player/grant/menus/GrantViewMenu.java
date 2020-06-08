@@ -10,11 +10,11 @@ import me.thesevenq.facebook.utils.menu.Button;
 import me.thesevenq.facebook.utils.menu.buttons.CloseButton;
 import me.thesevenq.facebook.utils.menu.pagination.PageButton;
 import me.thesevenq.facebook.utils.menu.pagination.PaginatedMenu;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
@@ -35,7 +35,7 @@ public class GrantViewMenu extends PaginatedMenu {
 
         buttons.put(0, new PageButton(-1, this));
         buttons.put(8, new PageButton(1, this));
-        buttons.put(35, new CloseButton());
+        buttons.put(26, new CloseButton());
 
         buttons.put(4, new Button() {
             @Override
@@ -98,6 +98,6 @@ public class GrantViewMenu extends PaginatedMenu {
 
     @Override
     public int getSize() {
-        return 9 * 4;
+        return 9 * 3;
     }
 }

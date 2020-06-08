@@ -1,4 +1,4 @@
-package me.thesevenq.facebook.utils;
+package me.thesevenq.facebook.utils.time;
 
 import java.text.DecimalFormat;
 import java.util.regex.Matcher;

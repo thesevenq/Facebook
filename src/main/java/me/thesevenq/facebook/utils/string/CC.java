@@ -1,4 +1,4 @@
-package me.thesevenq.facebook.utils;
+package me.thesevenq.facebook.utils.string;
 
 import org.bukkit.ChatColor;
 
@@ -80,7 +80,7 @@ public final class CC {
     public static final String BL = "§8 §8 §1 §3 §3 §7 §8 §r";
 
     static {
-        PRIMARY = ChatColor.AQUA.toString();
+        PRIMARY = ChatColor.LIGHT_PURPLE.toString();
         SECONDARY = ChatColor.YELLOW.toString();
         B_PRIMARY = PRIMARY + ChatColor.BOLD;
         B_SECONDARY = SECONDARY + ChatColor.BOLD;

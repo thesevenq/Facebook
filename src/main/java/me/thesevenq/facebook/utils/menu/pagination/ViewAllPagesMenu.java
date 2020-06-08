@@ -3,7 +3,7 @@ package me.thesevenq.facebook.utils.menu.pagination;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.menu.Button;
 import me.thesevenq.facebook.utils.menu.Menu;
 import me.thesevenq.facebook.utils.menu.buttons.BackButton;

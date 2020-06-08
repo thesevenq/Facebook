@@ -4,9 +4,9 @@ import com.google.common.collect.ImmutableList;
 import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.player.PlayerData;
 import me.thesevenq.facebook.ranks.Rank;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.Color;
-import me.thesevenq.facebook.utils.MessageUtils;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

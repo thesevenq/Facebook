@@ -3,10 +3,10 @@ package me.thesevenq.facebook.player.quests;
 import lombok.RequiredArgsConstructor;
 import me.thesevenq.facebook.cosmetics.CosmeticsMenu;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.ItemBuilder;
-import me.thesevenq.facebook.utils.MessageUtils;
+import me.thesevenq.facebook.utils.string.MessageUtils;
 import me.thesevenq.facebook.utils.menu.Button;
 import me.thesevenq.facebook.utils.menu.ButtonSound;
 import me.thesevenq.facebook.utils.menu.Menu;
@@ -53,7 +53,7 @@ public class QuestsMenu extends Menu {
 
                 lore.add(CC.GRAY + CC.STRIKE_THROUGH + "----------------------------");
 
-                return item.name(CC.B_PRIMARY + "Join Sicaro").lore(Color.translate(lore)).build();
+                return item.name(CC.B_PRIMARY + "Join our network!").lore(Color.translate(lore)).build();
             }
 
             @Override

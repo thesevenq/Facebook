@@ -1,7 +1,6 @@
 package me.thesevenq.facebook.player.grant.menus;
 
 import lombok.RequiredArgsConstructor;
-import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.player.PlayerData;
 import me.thesevenq.facebook.ranks.Rank;
 import me.thesevenq.facebook.ranks.procedure.GrantProcedure;
@@ -11,8 +10,10 @@ import me.thesevenq.facebook.utils.menu.Button;
 import me.thesevenq.facebook.utils.menu.buttons.CloseButton;
 import me.thesevenq.facebook.utils.menu.pagination.PageButton;
 import me.thesevenq.facebook.utils.menu.pagination.PaginatedMenu;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.StringUtil;
 import org.bukkit.ChatColor;
-import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
@@ -57,7 +58,7 @@ public class GrantSelectMenu extends PaginatedMenu {
             }
         });
 
-        buttons.put(27, new Button() {
+        /*buttons.put(27, new Button() {
             @Override
             public ItemStack getButtonItem(Player player) {
                 List<String> lore = new ArrayList<>();
@@ -71,7 +72,7 @@ public class GrantSelectMenu extends PaginatedMenu {
             public void clicked(Player player, int slot, ClickType clickType, int hotbarButton) {
                 new QuickGrantMenu().openMenu(player);
             }
-        });
+        });*/
 
         surroundButtons(false, buttons, new ItemBuilder(Material.STAINED_GLASS_PANE).name(" ").durability(7).build());
 
@@ -90,7 +91,8 @@ public class GrantSelectMenu extends PaginatedMenu {
 
                     List<String> lore = new ArrayList<>();
                     lore.add("");
-                    lore.add(CC.SECONDARY + "Player&7: " + FacebookAPI.getColoredName(player));
+                    lore.add(CC.SECONDARY + "Right-Click to continue.");
+                    lore.add(CC.SECONDARY + "Middle-Click to cancel procedure.");
                     lore.add("");
                     lore.add(CC.GREEN + "Click here to grant " + rank.getColor() + rank.getName() + CC.GREEN + " rank.");
                     return item.name(Color.translate(rank.getColor() + rank.getName())).lore(Color.translate(lore)).build();
@@ -101,6 +103,7 @@ public class GrantSelectMenu extends PaginatedMenu {
                     if(clickType == ClickType.MIDDLE) {
                         player.closeInventory();
                     } else {
+                        player.sendMessage(Color.translate("&aYou have selected " + rank.getColor() + rank.getName() + " rank."));
                         GrantProcedure grantProcedure = new GrantProcedure(rank, data, player.getName(), GrantProcedureStage.DURATION);
                         grantProcedure.setRank(rank);
                         new GrantDurationMenu(grantProcedure, data).openMenu(player);

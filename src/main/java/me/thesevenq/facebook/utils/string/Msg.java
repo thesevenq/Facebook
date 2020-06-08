@@ -1,4 +1,4 @@
-package me.thesevenq.facebook.utils;
+package me.thesevenq.facebook.utils.string;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

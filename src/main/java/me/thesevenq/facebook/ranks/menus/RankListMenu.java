@@ -1,21 +1,19 @@
 package me.thesevenq.facebook.ranks.menus;
 
 import lombok.RequiredArgsConstructor;
-import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.player.grant.menus.GrantReasonMenu;
 import me.thesevenq.facebook.player.grant.menus.QuickGrantMenu;
 import me.thesevenq.facebook.ranks.Rank;
-import me.thesevenq.facebook.ranks.procedure.GrantProcedure;
-import me.thesevenq.facebook.ranks.procedure.GrantProcedureStage;
 import me.thesevenq.facebook.utils.*;
-import me.thesevenq.facebook.utils.clickable.Clickable;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.StringUtil;
+import me.thesevenq.facebook.utils.string.clickable.Clickable;
 import me.thesevenq.facebook.utils.menu.Button;
 import me.thesevenq.facebook.utils.menu.buttons.CloseButton;
 import me.thesevenq.facebook.utils.menu.pagination.PageButton;
 import me.thesevenq.facebook.utils.menu.pagination.PaginatedMenu;
 import org.bukkit.ChatColor;
-import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;

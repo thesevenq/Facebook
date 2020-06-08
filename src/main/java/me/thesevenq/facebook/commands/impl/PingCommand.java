@@ -1,9 +1,9 @@
 package me.thesevenq.facebook.commands.impl;
 
 import me.thesevenq.facebook.commands.BaseCommand;
-import me.thesevenq.facebook.utils.Color;
-import me.thesevenq.facebook.utils.FacebookUtils;
-import me.thesevenq.facebook.utils.MessageUtils;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.FacebookUtils;
+import me.thesevenq.facebook.utils.string.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
 import org.bukkit.entity.Player;

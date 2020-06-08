@@ -7,8 +7,8 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 import me.thesevenq.facebook.server.nms.helpers.NMSHelper;
-import me.thesevenq.facebook.register.FacebookRegister;
-import me.thesevenq.facebook.utils.Color;
+import me.thesevenq.facebook.utils.register.FacebookRegister;
+import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.Tasks;
 import me.thesevenq.facebook.utils.location.LocationUtil;
 import net.minecraft.server.v1_7_R4.DataWatcher;

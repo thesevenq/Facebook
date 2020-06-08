@@ -2,7 +2,7 @@ package me.thesevenq.facebook.utils.location;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import me.thesevenq.facebook.utils.CC;
+import me.thesevenq.facebook.utils.string.CC;
 import me.thesevenq.facebook.utils.Tasks;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

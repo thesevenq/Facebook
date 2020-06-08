@@ -1,4 +1,4 @@
-package me.thesevenq.facebook.jedis;
+package me.thesevenq.facebook.database.jedis;
 
 import me.thesevenq.facebook.database.DatabaseManager;
 import redis.clients.jedis.Jedis;
@@ -11,7 +11,7 @@ public class JedisPublisher {
         Jedis jedis = null;
         try {
             jedis = DatabaseManager.getInstance().getJedisPool().getResource();
-
+            //jedis.auth("EL3DZp3EwMzx4gywmwbEt4DedKwKa5Au");
             jedis.publish(channel.toLowerCase(), message);
         } finally {
             if (jedis != null) {

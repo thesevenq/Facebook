@@ -1,13 +1,14 @@
-package me.thesevenq.facebook.jedis;
+package me.thesevenq.facebook.database.jedis;
 
 import com.google.gson.JsonParser;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.Color;
-import me.thesevenq.facebook.utils.ConsoleUtils;
-import me.thesevenq.facebook.utils.MessageUtils;
+import me.thesevenq.facebook.server.ServerData;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.ConsoleUtils;
+import me.thesevenq.facebook.utils.string.MessageUtils;
 import me.thesevenq.facebook.utils.player.Permission;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -28,6 +29,7 @@ public class JedisSubscriber {
 
     public JedisSubscriber() {
         this.jedis = new Jedis();
+        //this.jedis.auth("EL3DZp3EwMzx4gywmwbEt4DedKwKa5Au");
         subscribe();
     }
 
@@ -66,6 +68,23 @@ public class JedisSubscriber {
                                     Bukkit.getOnlinePlayers().stream().filter(ServerOperator::isOp).forEach(player -> player.sendMessage(Color.translate("&5[S] &dServer &d&l" + Facebook.getInstance().getConfig().getString("SERVERNAME") +" &dis now offline.")));
                                     ConsoleUtils.log("&5[S] &dServer &d&l" + Facebook.getInstance().getConfig().getString("SERVERNAME") + " &dis now offline.");
                                     break;
+                                case "dataUpdate": {
+                                    ServerData data = ServerData.getByName(args[1]);
+                                    if (data == null) {
+                                        ServerData.getServers().put(args[1], data = new ServerData());
+                                    }
+                                    data.setLastUpdate(System.currentTimeMillis());
+                                    data.setMotd(args[2]);
+                                    data.setOnlinePlayers(Integer.parseInt(args[3]));
+                                    data.setMaxPlayers(Integer.parseInt(args[4]));
+                                    data.setTps(Double.parseDouble(args[5]));
+                                    data.setWhitelisted(Boolean.parseBoolean(args[6]));
+                                    break;
+                                }
+                                case "dataRemove": {
+                                    ServerData.getServers().remove(args[1]);
+                                    break;
+                                }
                                 case "staffchat":
                                     msg = new TextComponent(Color.translate("&4S &7" + MessageUtils.LINE + " &c"));
                                     sender = new TextComponent(Color.translate("&c" + args[2]));
@@ -127,7 +146,7 @@ public class JedisSubscriber {
                                     break;
                                 case "runcmd":
                                     ConsoleUtils.log("&fPerforming &c/" + args[1] + "&f, requested by &c" + args[2] + "&f.");
-                                    Bukkit.dispatchCommand((CommandSender) Bukkit.getConsoleSender(), args[1]);
+                                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), args[1]);
                                     break;
                                 case "announce":
                                     Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(Color.translate("&4Announcement &7" + MessageUtils.LINE + " &r" + args[1])));

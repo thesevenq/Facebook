@@ -2,8 +2,8 @@ package me.thesevenq.facebook.commands.impl.staff.gamemode;
 
 import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.utils.CC;
-import me.thesevenq.facebook.utils.StringUtil;
+import me.thesevenq.facebook.utils.string.CC;
+import me.thesevenq.facebook.utils.string.StringUtil;
 import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;

@@ -4,7 +4,7 @@ import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.database.DatabaseManager;
-import me.thesevenq.facebook.jedis.JedisPublisher;
+import me.thesevenq.facebook.database.jedis.JedisPublisher;
 import org.bukkit.entity.Player;
 
 public class JoinMeCommand extends BaseCommand {

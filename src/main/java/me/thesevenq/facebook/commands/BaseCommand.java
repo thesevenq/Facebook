@@ -3,7 +3,7 @@ package me.thesevenq.facebook.commands;
 import java.util.ArrayList;
 import java.util.List;
 import me.thesevenq.facebook.Facebook;
-import me.thesevenq.facebook.utils.MessageUtils;
+import me.thesevenq.facebook.utils.string.MessageUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
