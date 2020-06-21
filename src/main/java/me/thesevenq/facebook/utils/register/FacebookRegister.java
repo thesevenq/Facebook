@@ -7,6 +7,7 @@ import me.thesevenq.facebook.cosmetics.CosmeticListeners;
 import me.thesevenq.facebook.database.DatabaseManager;
 import me.thesevenq.facebook.database.jedis.JedisPublisher;
 import me.thesevenq.facebook.player.PlayerData;
+import me.thesevenq.facebook.ranks.Rank;
 import me.thesevenq.facebook.server.ServerData;
 import me.thesevenq.facebook.server.nms.hologram.Hologram;
 import me.thesevenq.facebook.server.nms.npc.NPC;
@@ -58,6 +59,7 @@ public class FacebookRegister {
 
         new CommandManager();
 
+        Rank.importRanks();
         ConsoleUtils.log(CC.PRIMARY + "[Facebook] " + CC.SECONDARY + "Core has started successfully.");
         ConsoleUtils.log(CC.PRIMARY + "[Facebook] " + CC.GREEN + "All databases connected successfully.");
 
@@ -66,7 +68,6 @@ public class FacebookRegister {
     }
 
     public void unHook() {
-        DatabaseManager.getInstance().getPublisher().write("dataRemove;", serverData.getName());
         hologram.save();
         npc.save();
         PlayerData.getDataMap().values().forEach(PlayerData::save);
@@ -99,12 +100,12 @@ public class FacebookRegister {
 
     private void registerHoloFile() {
         holograms = new ConfigFile(Facebook.getInstance(), "holograms.yml");
-        this.hologram = new Hologram();
+        hologram = new Hologram();
     }
 
     public void registerNpcsFile() {
         npcs = new ConfigFile(Facebook.getInstance(), "npcs.yml");
-        this.npc = new NPC();
+        npc = new NPC();
     }
 
     public void registerManagers() {

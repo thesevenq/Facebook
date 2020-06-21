@@ -91,10 +91,8 @@ public class KillEffectMenu extends PaginatedMenu {
                     ItemBuilder item = new ItemBuilder(Material.WOOL).durability(10);
                     List<String> lore = new ArrayList<>();
                     lore.add("");
-                    lore.add(CC.SECONDARY + "Current: " + CC.PRIMARY + data.getKillEffectType().getName());
-                    lore.add("");
-                    lore.add(CC.GREEN + "Middle-Click to preview this effect.");
-                    lore.add(CC.GREEN + "Right-Click here to equip this effect.");
+                    lore.add(CC.GRAY + "Middle-Click to preview this effect.");
+                    lore.add(CC.GRAY + "Right-Click here to equip this effect.");
 
                     return item.name(CC.PRIMARY + killEffectType.getName()).lore(Color.translate(lore)).build();
                 }

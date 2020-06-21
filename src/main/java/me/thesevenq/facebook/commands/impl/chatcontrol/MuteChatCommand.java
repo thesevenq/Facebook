@@ -7,11 +7,13 @@ import me.thesevenq.facebook.utils.string.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 @Getter
 public class MuteChatCommand extends BaseCommand {
 
     public MuteChatCommand() {
-        super("mutechat", "facebook.staff", false);
+        super("mutechat", Arrays.asList(new String[]{"mc", "chatmute", "mchat"}), "facebook.staff", false);
     }
 
     @Getter public static Boolean muted = false;

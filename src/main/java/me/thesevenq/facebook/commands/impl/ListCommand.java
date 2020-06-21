@@ -10,10 +10,12 @@ import me.thesevenq.facebook.utils.string.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class ListCommand extends BaseCommand {
 
     public ListCommand() {
-        super("list", true);
+        super("list", Arrays.asList(new String[]{"playerlist"}), true);
     }
 
     public void execute(Player player, String[] args) {

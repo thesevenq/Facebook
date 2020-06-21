@@ -8,10 +8,12 @@ import me.thesevenq.facebook.utils.player.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class FreezeCommand extends BaseCommand {
 
     public FreezeCommand() {
-        super("freeze", "facebook.staff", true);
+        super("freeze", Arrays.asList(new String[]{"ss"}), "facebook.staff", true);
     }
 
     @Override

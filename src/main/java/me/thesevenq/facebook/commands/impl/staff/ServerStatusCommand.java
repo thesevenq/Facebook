@@ -9,10 +9,12 @@ import me.thesevenq.facebook.utils.string.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class ServerStatusCommand extends BaseCommand {
 
     public ServerStatusCommand() {
-        super("serverstatus", "facebook.staff", true);
+        super("serverstatus", Arrays.asList(new String[]{"serverdata", "data"}),"facebook.staff", true);
     }
 
     @Override

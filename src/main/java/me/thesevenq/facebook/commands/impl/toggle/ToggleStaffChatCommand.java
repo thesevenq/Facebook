@@ -6,10 +6,12 @@ import me.thesevenq.facebook.utils.string.CC;
 import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class ToggleStaffChatCommand extends BaseCommand {
 
     public ToggleStaffChatCommand() {
-        super("staffchat", "facebook.staff", true);
+        super("staffchat", Arrays.asList(new String[]{"sc", "togglestaffchat"}), "facebook.staff", true);
     }
 
     @Override

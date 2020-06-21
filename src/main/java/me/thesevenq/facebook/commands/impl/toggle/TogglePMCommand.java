@@ -5,10 +5,12 @@ import me.thesevenq.facebook.player.PlayerData;
 import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class TogglePMCommand extends BaseCommand {
 
     public TogglePMCommand() {
-        super("togglepm", true);
+        super("togglepm", Arrays.asList(new String[]{"tpm"}), true);
     }
 
 

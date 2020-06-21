@@ -5,10 +5,12 @@ import me.thesevenq.facebook.player.PlayerData;
 import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class ToggleTipsCommand extends BaseCommand {
 
     public ToggleTipsCommand() {
-        super("toggletips", true);
+        super("toggletips", Arrays.asList(new String[]{"ttips", "tips"}),true);
     }
 
     @Override

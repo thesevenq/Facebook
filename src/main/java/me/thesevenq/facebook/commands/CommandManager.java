@@ -13,6 +13,8 @@ import me.thesevenq.facebook.commands.impl.staff.gamemode.SurvivalCommand;
 import me.thesevenq.facebook.commands.impl.toggle.TogglePMCommand;
 import me.thesevenq.facebook.commands.impl.toggle.ToggleStaffChatCommand;
 import me.thesevenq.facebook.commands.impl.toggle.ToggleTipsCommand;
+import me.thesevenq.facebook.player.coins.BaciKisuParaCommand;
+import me.thesevenq.facebook.player.info.UserCommand;
 import me.thesevenq.facebook.ranks.commands.*;
 import me.thesevenq.facebook.server.nms.hologram.HologramCommand;
 import me.thesevenq.facebook.server.nms.npc.NPCCommand;
@@ -34,7 +36,7 @@ public class CommandManager {
 
         commands.add(new CosmeticsCommand());
         commands.add(new ListCommand());
-        commands.add(new CoinsCommand());
+        //commands.add(new CoinsCommand());
         commands.add(new QuestsCommand());
         commands.add(new QuickGrantCommand());
 
@@ -63,12 +65,16 @@ public class CommandManager {
         commands.add(new MessageCommand());
         commands.add(new ReplyCommand());
         commands.add(new TogglePMCommand());
+        commands.add(new UserCommand());
         commands.add(new GodCommand());
 
         commands.add(new HealCommand());
         commands.add(new ServerStatusCommand());
         commands.add(new LagCommand());
         commands.add(new AuthorCommand());
+        commands.add(new SettingsCommand());
+        commands.add(new PlayTimeCommand());
+        commands.add(new BaciKisuParaCommand());
 
         commands.add(new GrantCommand());
         commands.add(new GrantsCommand());

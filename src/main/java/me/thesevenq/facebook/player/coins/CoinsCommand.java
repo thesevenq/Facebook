@@ -11,11 +11,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.text.NumberFormat;
+import java.util.Arrays;
 
 public class CoinsCommand extends BaseCommand {
 
     public CoinsCommand() {
-        super("coins", true);
+        super("coins", Arrays.asList(new String[]{"credits", "gold"}), true);
     }
 
     @Override

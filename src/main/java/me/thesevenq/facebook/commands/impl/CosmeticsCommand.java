@@ -4,10 +4,12 @@ import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.cosmetics.CosmeticsMenu;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class CosmeticsCommand extends BaseCommand {
 
     public CosmeticsCommand() {
-        super("cosmetics", true);
+        super("cosmetics", Arrays.asList(new String[]{"prefix", "deathanimation", "color", "tag", "tags", "armors"}), true);
     }
 
 

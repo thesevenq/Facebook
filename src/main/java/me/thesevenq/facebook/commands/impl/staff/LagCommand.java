@@ -10,11 +10,12 @@ import org.bukkit.entity.Player;
 import org.spigotmc.SpigotWorldConfig;
 
 import java.lang.management.ManagementFactory;
+import java.util.Arrays;
 
 public class LagCommand extends BaseCommand {
     
     public LagCommand() {
-        super("lag", "facebook.staff", false);
+        super("lag", Arrays.asList(new String[]{"tps", "checklag"}), "facebook.staff", false);
     }
 
     @Override

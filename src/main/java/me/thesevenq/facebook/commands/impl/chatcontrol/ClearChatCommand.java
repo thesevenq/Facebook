@@ -6,10 +6,12 @@ import me.thesevenq.facebook.utils.string.CC;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class ClearChatCommand extends BaseCommand {
 
     public ClearChatCommand() {
-        super("clearchat", "facebook.staff",false);
+        super("clearchat", Arrays.asList(new String[]{"cc", "cchat", "chatclear"}), "facebook.staff",false);
     }
 
     @Override

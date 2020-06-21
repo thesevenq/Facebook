@@ -114,7 +114,7 @@ public class RankMenu extends PaginatedMenu {
                     ConsoleCommandSender console = Bukkit.getConsoleSender();
                     String command = "setrank " + player.getName() + " " + rankType.getName() + " 30d Ingame Purchase";
                     Bukkit.dispatchCommand((CommandSender) console, command);
-                    Bukkit.broadcastMessage(CC.GRAY + "[" + CC.B_PRIMARY + "Name" + CC.GRAY + "] " + CC.PRIMARY + player.getName() + CC.SECONDARY + " has just bought " + rankType.getRank().getColor() + rankType.getRank().getName() + CC.SECONDARY + " rank via ingame shop.");
+                    Bukkit.broadcastMessage(CC.GRAY + "[" + CC.BD_RED + "Alert" + CC.GRAY + "] " + CC.PRIMARY + player.getName() + CC.SECONDARY + " has just bought " + rankType.getRank().getColor() + rankType.getRank().getName() + CC.SECONDARY + " rank via ingame shop.");
                     FacebookAPI.removeCoins(player, rankType.getPrice());
                     playSound(player, ButtonSound.SUCCESS);
                     player.closeInventory();

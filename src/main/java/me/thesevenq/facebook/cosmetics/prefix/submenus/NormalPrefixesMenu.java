@@ -96,7 +96,7 @@ public class NormalPrefixesMenu extends PaginatedMenu {
                     }).forEach(lore::add);
                     lore.add("");
                     lore.add(CC.B_PRIMARY + "Chat Preview&7:");
-                    lore.add(prefixType.getStyle() + data.getRank().getPrefix() + data.getRank().getColor() + player.getName());
+                    lore.add(prefixType.getStyle() + " " + data.getRank().getPrefix() + data.getRank().getColor() + " " + player.getName());
                     lore.add("");
                     lore.add(CC.GREEN + "Click here to equip this prefix.");
 

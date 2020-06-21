@@ -10,12 +10,14 @@ import me.thesevenq.facebook.utils.menu.ButtonSound;
 import me.thesevenq.facebook.utils.menu.Menu;
 import me.thesevenq.facebook.utils.string.CC;
 import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.time.TimeFormatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -102,6 +104,7 @@ public class GrantConfirmMenu extends Menu {
                 lore.add(CC.SECONDARY + "Player&7: " + CC.PRIMARY + grantProcedure.getAddedTo().getName());
                 lore.add(CC.SECONDARY + "Rank&7: " + CC.PRIMARY + grantProcedure.getRank().getColor() + grantProcedure.getRank().getName());
                 lore.add(CC.SECONDARY + "Reason&7: " + CC.PRIMARY + grantProcedure.getReason());
+                lore.add(CC.SECONDARY + "Duration&7: " + CC.PRIMARY + (grantProcedure.getDuration() == -1L ? "Permanent" : TimeFormatUtils.getDetailedTime(grantProcedure.getDuration())));
                 lore.add("");
                 lore.add(CC.GRAY + "Click one of the items");
                 lore.add(CC.GRAY + "to finish the procedure.");
