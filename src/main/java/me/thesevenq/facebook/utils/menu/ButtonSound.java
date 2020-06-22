@@ -5,7 +5,7 @@ import org.bukkit.Sound;
 
 public enum ButtonSound {
 
-    CLICK(Sound.CLICK),
+    CLICK(Sound.CLICK),//Sound.CLICK stari
     SUCCESS(Sound.SUCCESSFUL_HIT),
     FAIL(Sound.DIG_GRASS);
 

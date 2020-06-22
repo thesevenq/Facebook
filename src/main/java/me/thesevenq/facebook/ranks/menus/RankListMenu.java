@@ -7,6 +7,7 @@ import me.thesevenq.facebook.ranks.Rank;
 import me.thesevenq.facebook.utils.*;
 import me.thesevenq.facebook.utils.string.CC;
 import me.thesevenq.facebook.utils.string.Color;
+import me.thesevenq.facebook.utils.string.MessageUtils;
 import me.thesevenq.facebook.utils.string.StringUtil;
 import me.thesevenq.facebook.utils.string.clickable.Clickable;
 import me.thesevenq.facebook.utils.menu.Button;
@@ -89,6 +90,9 @@ public class RankListMenu extends PaginatedMenu {
                     lore.add("");
                     lore.add(CC.SECONDARY + "Color&7: " + rank.getColor() + "Color");
                     lore.add(CC.SECONDARY + "Prefix&7: " + rank.getPrefix());
+                    lore.add("");
+                    lore.add(CC.PRIMARY + "Permissions&7: ");
+                    lore.add(CC.GRAY + " " + MessageUtils.CIRCLE + " " + CC.SECONDARY  + "facebook." + rank.getName().toLowerCase());
                     lore.add("");
                     lore.add(CC.GRAY + "Click here to see");
                     lore.add(CC.GRAY + "chat preview of this rank.");

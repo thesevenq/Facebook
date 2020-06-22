@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.FacebookAPI;
-import me.thesevenq.facebook.database.DatabaseManager;
+import me.thesevenq.facebook.server.database.DatabaseManager;
 import me.thesevenq.facebook.utils.string.Color;
 import org.bukkit.Bukkit;
 

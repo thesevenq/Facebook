@@ -4,9 +4,9 @@ import lombok.val;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.commands.impl.chatcontrol.MuteChatCommand;
-import me.thesevenq.facebook.cosmetics.scoreboard.ScoreboardType;
-import me.thesevenq.facebook.database.DatabaseManager;
-import me.thesevenq.facebook.database.jedis.JedisPublisher;
+import me.thesevenq.facebook.player.cosmetics.scoreboard.ScoreboardType;
+import me.thesevenq.facebook.server.database.DatabaseManager;
+import me.thesevenq.facebook.server.database.jedis.JedisPublisher;
 import me.thesevenq.facebook.server.nms.helpers.NMSHelper;
 import me.thesevenq.facebook.ranks.Rank;
 import me.thesevenq.facebook.utils.*;
@@ -17,6 +17,7 @@ import me.thesevenq.facebook.utils.string.MessageUtils;
 import me.thesevenq.facebook.utils.string.Msg;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -44,6 +45,14 @@ public class PlayerListeners implements Listener {
         val data = PlayerData.getByName(event.getPlayer().getName());
 
         if (data == null) return;
+
+        if(Bukkit.getServer().hasWhitelist()) {
+            if(event.getPlayer().isWhitelisted()) {
+                event.allow();
+            } else {
+                event.disallow(PlayerLoginEvent.Result.KICK_OTHER, CC.RED + "Server is currently in whitelist mode.\nOnly " + CC.GRAY + "Silver " + CC.RED + "and above can join.\n\n" + CC.SECONDARY + "Follow our discord for updates " + CC.PRIMARY + "discord.cobaltnetwork.cf" + CC.SECONDARY + ".");
+            }
+        }
 
         if (data.getScoreboard() == null) {
             data.setScoreboard(ScoreboardType.NORMAL);
@@ -86,13 +95,6 @@ public class PlayerListeners implements Listener {
         }
 
         event.setJoinMessage(null);
-    }
-
-    @EventHandler (ignoreCancelled = true, priority = EventPriority.MONITOR)
-    public void onPlayerJoinTab(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-
-        player.setPlayerListName(FacebookAPI.getColoredName(player));
     }
 
     @EventHandler

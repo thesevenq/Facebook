@@ -1,7 +1,7 @@
 package me.thesevenq.facebook.commands.impl.staff;
 
 import me.thesevenq.facebook.commands.BaseCommand;
-import me.thesevenq.facebook.database.DatabaseManager;
+import me.thesevenq.facebook.server.database.DatabaseManager;
 import me.thesevenq.facebook.utils.string.CC;
 import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.string.MessageUtils;

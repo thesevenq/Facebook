@@ -18,6 +18,7 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 
 import java.sql.Time;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -109,6 +110,7 @@ public class GrantConfirmMenu extends Menu {
                 lore.add(CC.GRAY + "Click one of the items");
                 lore.add(CC.GRAY + "to finish the procedure.");
                 return new ItemBuilder(Material.PAPER).lore(Color.translate(lore)).name(CC.B_GREEN + "Grant Info").build();
+
             }
         });
 

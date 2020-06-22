@@ -79,6 +79,7 @@ public class UserViewMenu extends Menu {
             @Override
             public void clicked(Player player, int slot, ClickType clickType, int hotbarButton) {
                 player.performCommand("grants " + data.getName());
+                playSound(player, ButtonSound.CLICK);
             }
         });
 
@@ -90,8 +91,8 @@ public class UserViewMenu extends Menu {
                 List<String> lore = new ArrayList<>();
                 lore.add("");
                 lore.add(CC.SECONDARY + "Active&7: " + CC.GREEN + "No");
-                lore.add(CC.SECONDARY + "Previous punishments&7: " + CC.PRIMARY + "5");
-                lore.add(CC.SECONDARY + "Last punishment&7: " + CC.PRIMARY + "Permanent Mute &7(&eBy &4thesevenq&7)");
+                lore.add(CC.SECONDARY + "Number of punishments&7: " + CC.PRIMARY + "5");
+                lore.add(CC.SECONDARY + "Last punishment&7: " + CC.PRIMARY + "Permanent Mute");
                 lore.add("");
                 lore.add(CC.GRAY + "Click here to view more info.");
 
@@ -130,7 +131,7 @@ public class UserViewMenu extends Menu {
         buttons.put(13, new Button() {
             @Override
             public ItemStack getButtonItem(Player player) {
-                ItemBuilder item = new ItemBuilder(Material.DOUBLE_PLANT);
+                ItemBuilder item = new ItemBuilder(Material.EMERALD);
 
                 List<String> lore = new ArrayList<>();
 
@@ -139,7 +140,7 @@ public class UserViewMenu extends Menu {
                 lore.add("");
                 lore.add(CC.GRAY + "Click here to view more info.");
 
-                return item.name(CC.PRIMARY + "Coins Info").lore(Color.translate(lore)).build();
+                return item.name(CC.PRIMARY + "Gems Info").lore(Color.translate(lore)).build();
             }
 
             @Override

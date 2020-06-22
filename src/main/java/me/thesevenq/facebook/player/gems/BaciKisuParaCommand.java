@@ -1,8 +1,8 @@
-package me.thesevenq.facebook.player.info;
+package me.thesevenq.facebook.player.gems;
 
 import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.player.info.menus.UserViewMenu;
+import me.thesevenq.facebook.player.gems.menus.CoinsMenu;
 import me.thesevenq.facebook.utils.string.CC;
 import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.string.MessageUtils;
@@ -10,17 +10,17 @@ import me.thesevenq.facebook.utils.player.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-public class UserCommand extends BaseCommand {
+public class BaciKisuParaCommand extends BaseCommand {
 
-    public UserCommand() {
-        super("user", "facebook.op", true);
+    public BaciKisuParaCommand() {
+        super("coins", "facebook.op", true);
     }
 
 
     public void execute(Player player, String[] args) {
 
         if(args.length == 0) {
-            player.sendMessage(CC.RED + "Usage: /user <player>");
+            player.sendMessage(CC.RED + "Usage: /coins <player>");
             return;
 
         }
@@ -29,11 +29,10 @@ public class UserCommand extends BaseCommand {
             if (target == null) {
                 player.sendMessage(Color.translate("&cThat player is offline."));
             } else {
+                player.sendMessage(MessageUtils.noPermission());
             }
-        } else {
-            player.sendMessage(MessageUtils.noPermission());
         }
         PlayerData data = PlayerData.getByName(target.getName());
-        new UserViewMenu(data).openMenu(player);
+        new CoinsMenu(data).openMenu(player);
     }
 }

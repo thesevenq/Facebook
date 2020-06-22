@@ -6,18 +6,18 @@ import com.mongodb.client.model.ReplaceOptions;
 import lombok.Getter;
 import lombok.Setter;
 import me.thesevenq.facebook.Facebook;
-import me.thesevenq.facebook.cosmetics.deathanimation.KillEffectType;
-import me.thesevenq.facebook.cosmetics.scoreboard.ScoreboardType;
-import me.thesevenq.facebook.database.DatabaseManager;
-import me.thesevenq.facebook.cosmetics.color.ColorType;
-import me.thesevenq.facebook.cosmetics.prefix.types.NormalPrefixType;
+import me.thesevenq.facebook.player.cosmetics.deathanimation.KillEffectType;
+import me.thesevenq.facebook.player.cosmetics.multiplier.MultiplierType;
+import me.thesevenq.facebook.player.cosmetics.scoreboard.ScoreboardType;
+import me.thesevenq.facebook.server.database.DatabaseManager;
+import me.thesevenq.facebook.player.cosmetics.color.ColorType;
+import me.thesevenq.facebook.player.cosmetics.prefix.types.NormalPrefixType;
 import me.thesevenq.facebook.player.grant.Grant;
 import me.thesevenq.facebook.ranks.Rank;
 import org.bson.Document;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.permissions.PermissionAttachmentInfo;
-import org.bukkit.scoreboard.Score;
 
 import java.lang.reflect.Type;
 import java.util.*;
@@ -39,6 +39,7 @@ public class PlayerData {
     private ColorType color;
     private ScoreboardType scoreboard;
     private KillEffectType killEffectType;
+    private MultiplierType multiplier;
 
     private boolean staffChat;
     private boolean frozen;
@@ -85,10 +86,13 @@ public class PlayerData {
         document.put("coins", coins);
         document.put("scoreboard", scoreboard.getName());
 
+        document.put("multiplier", multiplier.getName());
+
         document.put("staffChat", staffChat);
         document.put("frozen", frozen);
         document.put("rewardClaimable", rewardClaimable);
         document.put("tips", tips);
+
 
         if(killEffectType != null) {
             document.put("killEffect", killEffectType.getName());
@@ -127,6 +131,7 @@ public class PlayerData {
         prefix = NormalPrefixType.getByName(document.getString("prefix"));
         color = ColorType.getByName(document.getString("color"));
         killEffectType = KillEffectType.getByName(document.getString("killEffect"));
+        multiplier = MultiplierType.getByName(document.getString("multiplier"));
 
         staffChat = document.getBoolean("staffChat");
         frozen = document.getBoolean("frozen");

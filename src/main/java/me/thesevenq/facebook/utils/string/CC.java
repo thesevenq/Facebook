@@ -80,8 +80,8 @@ public final class CC {
     public static final String BL = "§8 §8 §1 §3 §3 §7 §8 §r";
 
     static {
-        PRIMARY = ChatColor.GOLD.toString();
-        SECONDARY = ChatColor.YELLOW.toString();
+        PRIMARY = ChatColor.DARK_AQUA.toString();
+        SECONDARY = ChatColor.AQUA.toString();
         B_PRIMARY = PRIMARY + ChatColor.BOLD;
         B_SECONDARY = SECONDARY + ChatColor.BOLD;
         BLUE = ChatColor.BLUE.toString();

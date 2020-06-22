@@ -1,7 +1,7 @@
 package me.thesevenq.facebook.player.quests;
 
 import lombok.RequiredArgsConstructor;
-import me.thesevenq.facebook.cosmetics.CosmeticsMenu;
+import me.thesevenq.facebook.player.cosmetics.CosmeticsMenu;
 import me.thesevenq.facebook.player.PlayerData;
 import me.thesevenq.facebook.utils.string.CC;
 import me.thesevenq.facebook.utils.string.Color;

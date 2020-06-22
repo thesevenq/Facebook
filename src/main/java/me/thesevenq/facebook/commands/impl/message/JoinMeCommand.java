@@ -3,8 +3,8 @@ package me.thesevenq.facebook.commands.impl.message;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.commands.BaseCommand;
-import me.thesevenq.facebook.database.DatabaseManager;
-import me.thesevenq.facebook.database.jedis.JedisPublisher;
+import me.thesevenq.facebook.server.database.DatabaseManager;
+import me.thesevenq.facebook.server.database.jedis.JedisPublisher;
 import org.bukkit.entity.Player;
 
 public class JoinMeCommand extends BaseCommand {

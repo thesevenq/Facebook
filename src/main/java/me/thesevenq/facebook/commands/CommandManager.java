@@ -1,6 +1,5 @@
 package me.thesevenq.facebook.commands;
 
-import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.commands.impl.*;
 import me.thesevenq.facebook.commands.impl.chatcontrol.ClearChatCommand;
 import me.thesevenq.facebook.commands.impl.chatcontrol.MuteChatCommand;
@@ -13,12 +12,11 @@ import me.thesevenq.facebook.commands.impl.staff.gamemode.SurvivalCommand;
 import me.thesevenq.facebook.commands.impl.toggle.TogglePMCommand;
 import me.thesevenq.facebook.commands.impl.toggle.ToggleStaffChatCommand;
 import me.thesevenq.facebook.commands.impl.toggle.ToggleTipsCommand;
-import me.thesevenq.facebook.player.coins.BaciKisuParaCommand;
+import me.thesevenq.facebook.player.gems.BaciKisuParaCommand;
 import me.thesevenq.facebook.player.info.UserCommand;
 import me.thesevenq.facebook.ranks.commands.*;
 import me.thesevenq.facebook.server.nms.hologram.HologramCommand;
 import me.thesevenq.facebook.server.nms.npc.NPCCommand;
-import me.thesevenq.facebook.player.coins.CoinsCommand;
 import me.thesevenq.facebook.server.shutdown.ShutdownCommand;
 import me.thesevenq.facebook.utils.register.FacebookRegister;
 
