@@ -82,5 +82,4 @@ public class FacebookAPI {
         data.setCoins(amount);
         data.save();
     }
-
 }

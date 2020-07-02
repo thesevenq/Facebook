@@ -1,7 +1,10 @@
 package me.thesevenq.facebook.player.cosmetics.multiplier;
 
+import lombok.Getter;
+
 import java.util.Arrays;
 
+@Getter
 public enum MultiplierType {
     X1_5(1.5D),
     X2_0(2.0D),
@@ -17,10 +20,6 @@ public enum MultiplierType {
 
     public String getName() {
         return this.name().toLowerCase().replace("_", ".");
-    }
-
-    public double getMultiply() {
-        return this.multiply;
     }
 
     MultiplierType(double multiply) {

@@ -5,6 +5,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 
 import java.util.Arrays;
 
+@Getter
 public enum NormalPrefixType {
     VERIFIED("Verified", "&a✔", "Only for discord verified players!"),
     WAVE("Wave", "&4o/", "Just waving."),
@@ -34,17 +35,5 @@ public enum NormalPrefixType {
 
     public static NormalPrefixType getByName(String input) {
         return Arrays.stream(values()).filter(type -> type.getName().equalsIgnoreCase(input)).findAny().orElse(null);
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getStyle() {
-        return this.style;
-    }
-
-    public String[] getDescription() {
-        return this.description;
     }
 }

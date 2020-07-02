@@ -25,13 +25,10 @@ public class GrantCommand extends BaseCommand {
 
         }
         Player target = Bukkit.getPlayer(args[0]);
-        if (player.hasPermission(Permission.OP)) {
             if (target == null) {
                 player.sendMessage(Color.translate("&cThat player is offline."));
-            } else {
-                player.sendMessage(MessageUtils.noPermission());
+                return;
             }
-        }
         PlayerData data = PlayerData.getByName(target.getName());
         new GrantSelectMenu(data).openMenu(player);
     }

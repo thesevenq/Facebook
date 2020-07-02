@@ -134,12 +134,6 @@ public class PlayerListeners implements Listener {
             DatabaseManager.getInstance().getPublisher().write(JedisPublisher.GLOBAL, "staffleave;" + FacebookAPI.getColoredName(player));
         }
 
-        if (data.isFrozen()) {
-            Msg.sendMessage("", Permission.STAFF);
-            Msg.sendMessage(CC.BD_RED + "(" + MessageUtils.X + CC.BD_RED + ") " + FacebookAPI.getColoredName(player) + CC.SECONDARY + " logged out while frozen.", Permission.STAFF);
-            Msg.sendMessage("", Permission.STAFF);
-        }
-
         event.setQuitMessage(null);
     }
 }

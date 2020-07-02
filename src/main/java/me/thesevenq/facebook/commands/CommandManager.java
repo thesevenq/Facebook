@@ -12,7 +12,6 @@ import me.thesevenq.facebook.commands.impl.staff.gamemode.SurvivalCommand;
 import me.thesevenq.facebook.commands.impl.toggle.TogglePMCommand;
 import me.thesevenq.facebook.commands.impl.toggle.ToggleStaffChatCommand;
 import me.thesevenq.facebook.commands.impl.toggle.ToggleTipsCommand;
-import me.thesevenq.facebook.player.gems.BaciKisuParaCommand;
 import me.thesevenq.facebook.player.info.UserCommand;
 import me.thesevenq.facebook.ranks.commands.*;
 import me.thesevenq.facebook.server.nms.hologram.HologramCommand;
@@ -72,7 +71,6 @@ public class CommandManager {
         commands.add(new AuthorCommand());
         commands.add(new SettingsCommand());
         commands.add(new PlayTimeCommand());
-        commands.add(new BaciKisuParaCommand());
 
         commands.add(new GrantCommand());
         commands.add(new GrantsCommand());

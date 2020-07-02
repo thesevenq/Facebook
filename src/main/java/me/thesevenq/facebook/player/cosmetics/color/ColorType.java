@@ -1,8 +1,11 @@
 package me.thesevenq.facebook.player.cosmetics.color;
 
 import java.util.Arrays;
+
+import lombok.Getter;
 import org.bukkit.ChatColor;
 
+@Getter
 public enum ColorType {
     DARK_PURPLE("Dark Purple", ChatColor.DARK_PURPLE),
     LIGHT_PURPLE("Light Purple", ChatColor.LIGHT_PURPLE),
@@ -22,14 +25,6 @@ public enum ColorType {
 
     public static ColorType getByName(String input) {
         return Arrays.stream(values()).filter((type) -> type.name().equalsIgnoreCase(input) || type.getName().equalsIgnoreCase(input)).findFirst().orElse(null);
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public ChatColor getColor() {
-        return this.color;
     }
 
     ColorType(String name, ChatColor color) {
