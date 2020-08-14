@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
@@ -45,7 +46,7 @@ public class FreezeListener implements Listener {
         if (PlayerData.getByName(event.getPlayer().getName()).isFrozen()) event.setCancelled(true);
     }
 
-    /*@EventHandler
+    @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
             Player victim = (Player) event.getEntity();
@@ -66,7 +67,7 @@ public class FreezeListener implements Listener {
                 damager.sendMessage(Color.translate("&c&l" + victim.getName() + " &cis frozen. You can not damage him."));
             }
         }
-    }*/
+    }
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {

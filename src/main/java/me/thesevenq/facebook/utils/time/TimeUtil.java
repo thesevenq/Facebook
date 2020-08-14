@@ -27,6 +27,19 @@ public class TimeUtil {
 
 	}
 
+	private static SimpleDateFormat FORMAT = new SimpleDateFormat("dd/MM/yyyy h:mma");
+	public static long PERMANENT = Long.MAX_VALUE;
+	private static ThreadLocal SECONDS = ThreadLocal.withInitial(() -> new DecimalFormat("0.#"));
+	private static ThreadLocal TRAILING = ThreadLocal.withInitial(() -> new DecimalFormat("0"));
+
+	public static String formatDuration(long input) {
+		return DurationFormatUtils.formatDurationWords(input, true, true);
+	}
+
+	public static String formatDate(long value) {
+		return FORMAT.format(new Date(value));
+	}
+
 	public static int parseTime(String time) {
 		if (time.equals("0") || time.equals("")) {
 			return 0;

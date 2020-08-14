@@ -4,7 +4,8 @@ import com.google.gson.JsonParser;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.player.PlayerData;
-import me.thesevenq.facebook.server.ServerData;
+import me.thesevenq.facebook.server.objects.Server;
+import me.thesevenq.facebook.server.objects.ServerType;
 import me.thesevenq.facebook.utils.string.CC;
 import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.string.ConsoleUtils;
@@ -19,6 +20,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.permissions.ServerOperator;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class JedisSubscriber {
 
@@ -68,21 +72,34 @@ public class JedisSubscriber {
                                     Bukkit.getOnlinePlayers().stream().filter(ServerOperator::isOp).forEach(player -> player.sendMessage(Color.translate("&5[S] &dServer &d&l" + Facebook.getInstance().getConfig().getString("SERVERNAME") +" &dis now offline.")));
                                     ConsoleUtils.log("&5[S] &dServer &d&l" + Facebook.getInstance().getConfig().getString("SERVERNAME") + " &dis now offline.");
                                     break;
-                                case "dataUpdate": {
-                                    ServerData data = ServerData.getByName(args[1]);
-                                    if (data == null) {
-                                        ServerData.getServers().put(args[1], data = new ServerData());
+                                case "update": {
+                                    Server server = Facebook.getInstance().getServerManager().getByName(args[1]);
+
+                                    if (!server.isOnline()) {
+                                        server = new Server();
+                                        Facebook.getInstance().getServerManager().addServer(args[1], server);
                                     }
-                                    data.setLastUpdate(System.currentTimeMillis());
-                                    data.setMotd(args[2]);
-                                    data.setOnlinePlayers(Integer.parseInt(args[3]));
-                                    data.setMaxPlayers(Integer.parseInt(args[4]));
-                                    data.setTps(Double.parseDouble(args[5]));
-                                    data.setWhitelisted(Boolean.parseBoolean(args[6]));
+                                    List<String> players = new ArrayList<>();
+
+                                    for (String string : args[8].replace("[", "").replace("]", "").split(",")) {
+                                        players.add(string);
+                                    }
+
+                                    server.setName(args[1]);
+                                    server.setType(ServerType.getType(args[2]));
+                                    server.setOnlinePlayers(Integer.parseInt(args[3]));
+                                    server.setMaxPlayers(Integer.parseInt(args[4]));
+                                    server.setWhitelisted(Boolean.parseBoolean(args[5]));
+                                    server.setTps1(Double.parseDouble(args[6]));
+                                    server.setTps2(Double.parseDouble(args[7]));
+                                    server.setTps3(Double.parseDouble(args[8]));
+                                    server.setPlayers(players);
+                                    server.setLastUpdate(System.currentTimeMillis());
                                     break;
                                 }
-                                case "dataRemove": {
-                                    ServerData.getServers().remove(args[1]);
+                                case "remove": {
+                                    //ServerData.getServers().remove(args[1]);
+                                    Facebook.getInstance().getServerManager().removeServer(args[1]);
                                     break;
                                 }
                                 case "staffchat":

@@ -1,5 +1,9 @@
 package me.thesevenq.facebook.commands;
 
+import me.thesevenq.facebook.Facebook;
+import me.thesevenq.facebook.auth.commands.AuthCommand;
+import me.thesevenq.facebook.auth.commands.LoginCommand;
+import me.thesevenq.facebook.auth.commands.RegisterCommand;
 import me.thesevenq.facebook.commands.impl.*;
 import me.thesevenq.facebook.commands.impl.chatcontrol.ClearChatCommand;
 import me.thesevenq.facebook.commands.impl.chatcontrol.MuteChatCommand;
@@ -14,8 +18,6 @@ import me.thesevenq.facebook.commands.impl.toggle.ToggleStaffChatCommand;
 import me.thesevenq.facebook.commands.impl.toggle.ToggleTipsCommand;
 import me.thesevenq.facebook.player.info.UserCommand;
 import me.thesevenq.facebook.ranks.commands.*;
-import me.thesevenq.facebook.server.nms.hologram.HologramCommand;
-import me.thesevenq.facebook.server.nms.npc.NPCCommand;
 import me.thesevenq.facebook.server.shutdown.ShutdownCommand;
 import me.thesevenq.facebook.utils.register.FacebookRegister;
 
@@ -41,10 +43,9 @@ public class CommandManager {
         commands.add(new MuteChatCommand());
         commands.add(new AnnounceCommand());
         commands.add(new ToggleStaffChatCommand());
+        commands.add(new LunarCommand());
 
         commands.add(new GamemodeCommand());
-        commands.add(new NPCCommand());
-        commands.add(new HologramCommand());
 
         commands.add(new AdventureCommand());
         commands.add(new SurvivalCommand());
@@ -64,9 +65,11 @@ public class CommandManager {
         commands.add(new TogglePMCommand());
         commands.add(new UserCommand());
         commands.add(new GodCommand());
+        commands.add(new EmoteCommand());
 
         commands.add(new HealCommand());
         commands.add(new ServerStatusCommand());
+        commands.add(new ServerDataCommand());
         commands.add(new LagCommand());
         commands.add(new AuthorCommand());
         commands.add(new SettingsCommand());
@@ -76,6 +79,12 @@ public class CommandManager {
         commands.add(new GrantsCommand());
         commands.add(new SetRankCommand());
         commands.add(new RankListCommand());
+
+        if (Facebook.getInstance().getConfig().getBoolean("AUTHENTICATION.ENABLED")) {
+            commands.add(new LoginCommand());
+            commands.add(new RegisterCommand());
+            commands.add(new AuthCommand());
+        }
 
         commands.forEach(command -> FacebookRegister.getInstance().getCommandMap().register("core", command));
     }

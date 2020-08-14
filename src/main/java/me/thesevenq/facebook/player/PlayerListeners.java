@@ -7,7 +7,6 @@ import me.thesevenq.facebook.commands.impl.chatcontrol.MuteChatCommand;
 import me.thesevenq.facebook.player.cosmetics.scoreboard.ScoreboardType;
 import me.thesevenq.facebook.server.database.DatabaseManager;
 import me.thesevenq.facebook.server.database.jedis.JedisPublisher;
-import me.thesevenq.facebook.server.nms.helpers.NMSHelper;
 import me.thesevenq.facebook.ranks.Rank;
 import me.thesevenq.facebook.utils.*;
 import me.thesevenq.facebook.utils.player.Permission;
@@ -16,6 +15,7 @@ import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.string.MessageUtils;
 import me.thesevenq.facebook.utils.string.Msg;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
@@ -50,13 +50,16 @@ public class PlayerListeners implements Listener {
             if(event.getPlayer().isWhitelisted()) {
                 event.allow();
             } else {
-                event.disallow(PlayerLoginEvent.Result.KICK_OTHER, CC.RED + "Server is currently in whitelist mode.\nOnly " + CC.GRAY + "Silver " + CC.RED + "and above can join.\n\n" + CC.SECONDARY + "Follow our discord for updates " + CC.PRIMARY + "discord.cobaltnetwork.cf" + CC.SECONDARY + ".");
+                event.disallow(PlayerLoginEvent.Result.KICK_OTHER, CC.RED + "Server is currently in whitelist mode.\nOnly " + CC.GRAY + "Silver " + CC.RED + "and above can join.\n\n" + CC.SECONDARY + "Follow our discord for updates " + CC.PRIMARY + "discord.hestianetwork.cf" + CC.SECONDARY + ".");
             }
         }
 
         if (data.getScoreboard() == null) {
             data.setScoreboard(ScoreboardType.NORMAL);
+
         }
+
+        data.setAuthenticated(false);
 
         data.load();
         data.setupPermissionsAttachment(Facebook.getInstance(), event.getPlayer());
@@ -68,7 +71,12 @@ public class PlayerListeners implements Listener {
         Player player = event.getPlayer();
         val data = PlayerData.getByName(player.getName());
 
-        Tasks.runLater(() -> NMSHelper.respawnHologramsAndNpcs(event.getPlayer()), 20L);
+        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(player.getName());
+
+
+        if(!player.hasPlayedBefore()) {
+            data.setRegistered(false);
+        }
 
         if (FacebookAPI.getServerName().equalsIgnoreCase("Lobby")) {
             if (data.getRank() == Rank.OWNER
@@ -94,6 +102,7 @@ public class PlayerListeners implements Listener {
             player.setOp(true);
         }
 
+        data.setAuthenticated(false);
         event.setJoinMessage(null);
     }
 

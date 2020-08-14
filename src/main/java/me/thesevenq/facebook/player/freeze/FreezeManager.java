@@ -35,19 +35,19 @@ public class FreezeManager extends Manager {
             data.setFrozen(false);
             DatabaseManager.getInstance().getPublisher().write(JedisPublisher.GLOBAL, "unfroze;" + FacebookAPI.getColoredName(player) + ";" + FacebookAPI.getColoredName(target));
 
-            //Msg.sendMessage(Color.translate("&7[&6S&7] " + FacebookAPI.getColoredName(target) + " &ehas been un-frozen by " + FacebookAPI.getColoredName(player) + "&e."), Permission.STAFF);
+            Msg.sendMessage(Facebook.getInstance().getConfig().getString("FREEZE.USER_UNFREEZED").replace("<frozenPlayer>", FacebookAPI.getColoredName(target)).replace("<player>", FacebookAPI.getColoredName(player)), Permission.STAFF);
             return;
         }
 
         data.setFrozen(true);
         DatabaseManager.getInstance().getPublisher().write(JedisPublisher.GLOBAL, "froze;" + FacebookAPI.getColoredName(player) + ";" + FacebookAPI.getColoredName(target));
-        //Msg.sendMessage(Color.translate("&7[&6S&7] " + FacebookAPI.getColoredName(target) + " &ehas been frozen by " + FacebookAPI.getColoredName(player) + "&e."), Permission.STAFF);
+        Msg.sendMessage(Facebook.getInstance().getConfig().getString("FREEZE.USER_FREEZED").replace("<frozenPlayer>", FacebookAPI.getColoredName(target)).replace("<player>", FacebookAPI.getColoredName(player)), Permission.STAFF);
     }
 
     public void setFrozen(Player target) {
         PlayerData data = PlayerData.getByName(target.getName());
         data.setFrozen(true);
-        Msg.sendMessage(Color.translate("&7[&6S&7] " + FacebookAPI.getColoredName(target) + " &ehas been frozen."), Permission.STAFF);
+        //Msg.sendMessage(Color.translate("&7[&6S&7] " + FacebookAPI.getColoredName(target) + " &ehas been frozen."), Permission.STAFF);
     }
 
     public void handleMove(Player player, Location from, Location to) {

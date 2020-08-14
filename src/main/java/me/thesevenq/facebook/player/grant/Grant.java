@@ -28,5 +28,4 @@ public class Grant {
         return TimeFormatUtils.getDetailedTime(this.duration - System.currentTimeMillis());
     }
 
-
 }

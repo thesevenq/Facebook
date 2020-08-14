@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 
 @Getter
 public enum ColorType {
+
     DARK_PURPLE("Dark Purple", ChatColor.DARK_PURPLE),
     LIGHT_PURPLE("Light Purple", ChatColor.LIGHT_PURPLE),
     BLUE("Blue", ChatColor.BLUE),

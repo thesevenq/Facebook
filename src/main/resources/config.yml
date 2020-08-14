@@ -1,5 +1,45 @@
-SERVERNAME: "Lobby"
+SERVERNAME: "hub-01"
+SERVERTYPE: "HUB"
 SERVER_IP: "name.network"
 SERVER_STORE: "store.name.network"
 ANNOUNCE_SERVER_STATUS: true
 DEVMODE: true
+
+MAINCOLOR: "&6"
+SECONDARYCOLOR: "&e"
+
+AUTHENTICATION:
+  ENABLED: false
+  LOGIN_MESSAGE: "&ePlease use &6/login <password> &eto authenticate."
+  REGISTER_MESSAGE: "&ePlease use &6/register <password> &eto register."
+  ALREADY_AUTHENTICATED: "&cYou are already authenticated. You can logout using &l/logout &ccommand."
+  ALREADY_REGISTERED: "&cYou are already registered, please use /login <password>."
+  WRONG_PASSWORD: "&cIncorrect password, please try again!"
+  SUCCESSFULLY_AUTHENTICATED: "&aLogin done, enjoy playing."
+  SUCCESSFULLY_REGISTERED: "&aSuccessfully registered!"
+  NEED_TO_AUTH: "&cYou need to authenticate via our discord."
+  AUTH_CODE: '&eYour auth code can be found in &6#auth-codes &echannel on our discord.'
+  CODE_AUTHENTICATED: "&aCode '&l<code>&a' is valid. You are now ready to go!"
+  WRONG_CODE: "&cThat code is invalid. Please check &6#auth-codes &cchannel on our discord."
+  DISCORD: '&7discord.servername.network'
+
+FREEZE:
+  USER_FREEZED: "<frozenPlayer> &3has been freezed by <player>"
+  USER_UNFREEZED: "USER_FREEZED: <frozenPlayer> &3has been un-freezed by <player>"
+  FREEZE_MESSAGE:
+    - ""
+    - "&eYou have 3 minutes to join &7discord.server.network"
+    - "&eAny files modification before screenshare will"
+    - "&eresult in a &4permanent &eserver suspendtion."
+    - ""
+
+MESSAGES:
+  - "&eTeamSpeak3 IP - &6link.link.com"
+  - "&eSupport the server by donating - &6link.link.com"
+  - "&eFound a bug? Report it here - &6link.link.com"
+  - "&eFound a cheater? Report the player here - &6link.link.com"
+  - "&eJoin our Discord server to participate in our giveaways and to keep up with the updates coming to the server - &6discord.gg/TfQZeyn"
+  - "&eNeed Owner Support? Request support here - &6link.link.com"
+  - "&eWant to appeal a punishment? Appeal here - &6link.link.com"
+  - "&eYou can apply for media rank here - &6link.link.com"
+  - "&eIf you want to become a part of the Hestia Staff team, join our Discord server in order to be notified when the applications open! Discord - &6link.link.com"

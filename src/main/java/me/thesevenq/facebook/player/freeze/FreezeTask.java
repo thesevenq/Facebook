@@ -24,12 +24,8 @@ public class FreezeTask extends BukkitRunnable {
     }
 
     public void sendMessage(Player player) {
-        player.sendMessage("");
-        player.sendMessage(CC.SECONDARY + "You have " + CC.PRIMARY + "3" + CC.SECONDARY + " minutes to join our discord!");
-        player.sendMessage(CC.PRIMARY + " discord.cobalt.cf");
-        player.sendMessage("");
-        player.sendMessage(CC.SECONDARY + "Any modification of files before screenshare");
-        player.sendMessage(CC.SECONDARY + "will result to a " + CC.RED + "permanent " + CC.SECONDARY + "punishment.");
-        player.sendMessage("");
+        for(String messages : Facebook.getInstance().getConfig().getStringList("FREEZE.FREEZE_MESSAGE")) {
+            player.sendMessage(messages.replace("<player>", player.getName()));
+        }
     }
 }

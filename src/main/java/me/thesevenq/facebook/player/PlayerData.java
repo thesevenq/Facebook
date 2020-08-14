@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.player.cosmetics.deathanimation.KillEffectType;
+import me.thesevenq.facebook.player.cosmetics.emotes.EmoteType;
 import me.thesevenq.facebook.player.cosmetics.multiplier.MultiplierType;
 import me.thesevenq.facebook.player.cosmetics.scoreboard.ScoreboardType;
 import me.thesevenq.facebook.server.database.DatabaseManager;
@@ -40,17 +41,25 @@ public class PlayerData {
     private ScoreboardType scoreboard;
     private KillEffectType killEffectType;
     private MultiplierType multiplier;
+    private EmoteType emote;
 
     private boolean staffChat;
     private boolean frozen;
     private boolean rewardClaimable;
     private boolean toggleMsg = false;
     private boolean tips;
+    private boolean registered;
+    private boolean authenticated;
+    private boolean codeVerified;
+
+    private String password;
 
     private int coins = 0;
+    private String code;
 
     private Grant grant;
     private List<Grant> grants = new ArrayList<>();
+    private List<UUID> friends = new ArrayList<>();
 
     public PlayerData(String name) {
         this.name = name;
@@ -60,6 +69,8 @@ public class PlayerData {
         this.frozen = false;
         this.rewardClaimable = true;
         this.tips = true;
+        this.registered = false;
+        this.codeVerified = false;
 
         dataMap.put(this.name, this);
     }
@@ -93,8 +104,15 @@ public class PlayerData {
         document.put("rewardClaimable", rewardClaimable);
         document.put("tips", tips);
 
+        document.put("registered", registered);
+        document.put("authenticated", authenticated);
+        document.put("password", password);
+        document.put("authCode", code);
+        document.put("codeVerified", codeVerified);
 
-        if(killEffectType != null) {
+        document.put("emote", emote);
+
+        if (killEffectType != null) {
             document.put("killEffect", killEffectType.getName());
         }
 
@@ -102,7 +120,7 @@ public class PlayerData {
             document.put("prefix", prefix.getName());
         }
 
-        if(color != null) {
+        if (color != null) {
             document.put("color", color.getName());
         }
 
@@ -132,11 +150,18 @@ public class PlayerData {
         color = ColorType.getByName(document.getString("color"));
         killEffectType = KillEffectType.getByName(document.getString("killEffect"));
         multiplier = MultiplierType.getByName(document.getString("multiplier"));
+        emote = EmoteType.getByName(document.getString("emote"));
 
         staffChat = document.getBoolean("staffChat");
         frozen = document.getBoolean("frozen");
         rewardClaimable = document.getBoolean("rewardClaimable");
         tips = document.getBoolean("tips");
+
+        registered = document.getBoolean("registered");
+        authenticated = document.getBoolean("authenticated");
+        password = document.getString("password");
+        code = document.getString("authCode");
+        codeVerified = document.getBoolean("codeVerified");
     }
 
     public static PlayerData getByName(String name) {
@@ -157,41 +182,41 @@ public class PlayerData {
 
         PermissionAttachment attachment = player.addAttachment(plugin);
 
-            switch (getRank()) {
-                case BASIC:
-                    attachment.setPermission("facebook.donor", true);
-                case SILVER:
-                    attachment.setPermission("facebook.donor", true);
-                case GOLD:
-                    attachment.setPermission("facebook.donor", true);
-                case PLATINUM:
-                    attachment.setPermission("facebook.donor", true);
-                case RUBY:
-                    attachment.setPermission("facebook.donor", true);
-                case MEDIA:
-                    attachment.setPermission("facebook.media", true);
-                case YOUTUBER:
-                    attachment.setPermission("facebook.media", true);
-                case FAMOUS:
-                    attachment.setPermission("facebook.media", true);
-                case TRIALMOD:
-                    attachment.setPermission("facebook.staff", true);
-                case MOD:
-                    attachment.setPermission("facebook.seniorstaff", true);
-                case SENIORMOD:
-                    attachment.setPermission("facebook.seniorstaff", true);
-                case ADMIN:
-                    attachment.setPermission("facebook.admin", true);
-                case MANAGER:
-                    attachment.setPermission("facebook.manager", true);
-                case OWNER:
-                    attachment.setPermission("facebook.staff", true);
-                    attachment.setPermission("facebook.seniorstaff", true);
-                    attachment.setPermission("facebook.manager", true);
-                    attachment.setPermission("facebook.op", true);
-                default:
+        switch (getRank()) {
+            case BASIC:
+                attachment.setPermission("facebook.donor", true);
+            case SILVER:
+                attachment.setPermission("facebook.donor", true);
+            case GOLD:
+                attachment.setPermission("facebook.donor", true);
+            case PLATINUM:
+                attachment.setPermission("facebook.donor", true);
+            case RUBY:
+                attachment.setPermission("facebook.donor", true);
+            case MEDIA:
+                attachment.setPermission("facebook.media", true);
+            case YOUTUBER:
+                attachment.setPermission("facebook.media", true);
+            case FAMOUS:
+                attachment.setPermission("facebook.media", true);
+            case TRIALMOD:
+                attachment.setPermission("facebook.staff", true);
+            case MOD:
+                attachment.setPermission("facebook.seniorstaff", true);
+            case SENIORMOD:
+                attachment.setPermission("facebook.seniorstaff", true);
+            case ADMIN:
+                attachment.setPermission("facebook.admin", true);
+            case MANAGER:
+                attachment.setPermission("facebook.manager", true);
+            case OWNER:
+                attachment.setPermission("facebook.staff", true);
+                attachment.setPermission("facebook.seniorstaff", true);
+                attachment.setPermission("facebook.manager", true);
+                attachment.setPermission("facebook.op", true);
+            default:
 
-                    break;
+                break;
         }
         player.recalculatePermissions();
     }

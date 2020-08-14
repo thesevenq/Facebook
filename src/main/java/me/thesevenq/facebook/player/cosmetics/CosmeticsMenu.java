@@ -5,6 +5,7 @@ import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.FacebookAPI;
 import me.thesevenq.facebook.player.cosmetics.color.ColorMenu;
 import me.thesevenq.facebook.player.cosmetics.deathanimation.KillEffectMenu;
+import me.thesevenq.facebook.player.cosmetics.emotes.EmoteMenu;
 import me.thesevenq.facebook.player.cosmetics.multiplier.MultiplierMenu;
 import me.thesevenq.facebook.player.cosmetics.prefix.submenus.NormalPrefixesMenu;
 import me.thesevenq.facebook.player.cosmetics.ranks.RankMenu;
@@ -73,7 +74,7 @@ public class CosmeticsMenu extends Menu {
                     lore.add("");
                     lore.add(CC.GRAY + "Buy rank on our store");
                     lore.add(CC.GRAY + "to gain access to prefixes.");
-                    lore.add(CC.PRIMARY + "store.cobalt.cf");
+                    lore.add(CC.PRIMARY + "store.hestia.cf");
 
                 }
 
@@ -116,7 +117,7 @@ public class CosmeticsMenu extends Menu {
                     lore.add("");
                     lore.add(CC.GRAY + "Buy rank on our store");
                     lore.add(CC.GRAY + "to gain access to colors.");
-                    lore.add(CC.PRIMARY + "store.cobalt.cf");
+                    lore.add(CC.PRIMARY + "store.hestia.cf");
                 }
 
 
@@ -159,7 +160,7 @@ public class CosmeticsMenu extends Menu {
                     lore.add("");
                     lore.add(CC.GRAY + "Buy rank on our store");
                     lore.add(CC.GRAY + "to gain access to animations.");
-                    lore.add(CC.PRIMARY + "store.cobalt.cf");
+                    lore.add(CC.PRIMARY + "store.hestia.cf");
                 }
 
 
@@ -202,7 +203,7 @@ public class CosmeticsMenu extends Menu {
                     lore.add("");
                     lore.add(CC.GRAY + "Buy rank on our store");
                     lore.add(CC.GRAY + "to gain access to armors.");
-                    lore.add(CC.PRIMARY + "store.cobalt.cf");
+                    lore.add(CC.PRIMARY + "store.hestia.cf");
 
                 }
 
@@ -283,7 +284,7 @@ public class CosmeticsMenu extends Menu {
                     lore.add("");
                     lore.add(CC.GRAY + "Buy rank on our store");
                     lore.add(CC.GRAY + "to gain access to multiplier.");
-                    lore.add(CC.PRIMARY + "store.cobalt.cf");
+                    lore.add(CC.PRIMARY + "store.hestia.cf");
                 }
 
 
@@ -297,6 +298,48 @@ public class CosmeticsMenu extends Menu {
                     playSound(player, ButtonSound.CLICK);
                 } else {
                     player.sendMessage(CC.RED + "You don't own any multipliers. Buy a rank at our store to get access to multipliers " + CC.B_RED + Facebook.getInstance().getConfig().getString("SERVER_STORE"));
+                    playSound(player, ButtonSound.FAIL);
+
+                }
+            }
+        });
+
+        buttons.put(18, new Button() {
+            @Override
+            public ItemStack getButtonItem(Player player) {
+                ItemBuilder item = (data.getRank() == Rank.DEFAULT ? new ItemBuilder(Material.REDSTONE_BLOCK) : new ItemBuilder(Material.QUARTZ));
+
+                List<String> lore = new ArrayList<>();
+
+                lore.add("");
+
+                if (data.getRank() != Rank.DEFAULT) {
+                    lore.add(CC.GRAY + "Here you can select");
+                    lore.add(CC.GRAY + "custom emotes.");
+                    lore.add("");
+                    lore.add(CC.SECONDARY + " Available: " + CC.PRIMARY + "7");
+                    lore.add(CC.SECONDARY + " Unlocked: " + CC.PRIMARY + "7");
+                    lore.add("");
+                    lore.add(CC.GRAY + "Click here to browse emotes.");
+                } else {
+                    lore.add(CC.RED + MessageUtils.X + " You don't own any emotes!");
+                    lore.add("");
+                    lore.add(CC.GRAY + "Buy rank on our store");
+                    lore.add(CC.GRAY + "to gain access to emotes.");
+                    lore.add(CC.PRIMARY + "store.hestia.cf");
+                }
+
+
+                return item.name(CC.PRIMARY + "Emotes").lore(Color.translate(lore)).build();
+            }
+
+            @Override
+            public void clicked(Player player, int slot, ClickType clickType, int hotbarButton) {
+                if (data.getRank() != Rank.DEFAULT) {
+                    new EmoteMenu(data).openMenu(player);
+                    playSound(player, ButtonSound.CLICK);
+                } else {
+                    player.sendMessage(CC.RED + "You don't own any emotes. Buy a rank at our store to get access to emotes " + CC.B_RED + Facebook.getInstance().getConfig().getString("SERVER_STORE"));
                     playSound(player, ButtonSound.FAIL);
 
                 }

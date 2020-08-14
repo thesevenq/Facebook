@@ -42,6 +42,19 @@ public abstract class Menu {
 		return item;
 	}
 
+	public void fill(Map buttons, ItemStack itemStack) {
+		IntStream.range(0, getSize()).filter((slot) -> {
+			return buttons.get(slot) == null;
+		}).forEach((slot) -> {
+			buttons.put(slot, new Button() {
+				@Override
+				public ItemStack getButtonItem(Player player) {
+					return itemStack;
+				}
+			});
+		});
+	}
+
 	public void openMenu(Player player) {
 		this.buttons = this.getButtons(player);
 

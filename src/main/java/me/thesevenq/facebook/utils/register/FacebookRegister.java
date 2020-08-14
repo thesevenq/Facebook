@@ -2,20 +2,20 @@ package me.thesevenq.facebook.utils.register;
 
 import lombok.Getter;
 import me.thesevenq.facebook.Facebook;
+import me.thesevenq.facebook.auth.AuthListener;
 import me.thesevenq.facebook.commands.CommandManager;
 import me.thesevenq.facebook.player.cosmetics.CosmeticListeners;
+import me.thesevenq.facebook.player.freeze.FreezeManager;
 import me.thesevenq.facebook.server.database.DatabaseManager;
 import me.thesevenq.facebook.server.database.jedis.JedisPublisher;
 import me.thesevenq.facebook.player.PlayerData;
 import me.thesevenq.facebook.ranks.Rank;
 import me.thesevenq.facebook.server.ServerData;
-import me.thesevenq.facebook.server.nms.hologram.Hologram;
-import me.thesevenq.facebook.server.nms.npc.NPC;
 import me.thesevenq.facebook.player.PlayerListeners;
 import me.thesevenq.facebook.player.freeze.FreezeListener;
 import me.thesevenq.facebook.player.freeze.FreezeTask;
 import me.thesevenq.facebook.ranks.procedure.GrantProcedureListener;
-import me.thesevenq.facebook.server.tips.TipsManager;
+import me.thesevenq.facebook.server.tasks.MessageTask;
 import me.thesevenq.facebook.utils.string.CC;
 import me.thesevenq.facebook.utils.string.ConsoleUtils;
 import me.thesevenq.facebook.utils.files.ConfigFile;
@@ -35,9 +35,8 @@ public class FacebookRegister {
     @Getter public ConfigFile npcs;
 
     private CommandMap commandMap;
+    private FreezeManager freezeManager;
 
-    private NPC npc;
-    private Hologram hologram;
     private ServerData serverData;
 
     @Getter public static FacebookRegister instance;
@@ -49,9 +48,6 @@ public class FacebookRegister {
     public void hook() {
         registerListeners();
         registerManagers();
-        registerConfigs();
-        registerHoloFile();
-        registerNpcsFile();
         registerTasks();
         registerUtilties();
 
@@ -68,15 +64,11 @@ public class FacebookRegister {
     }
 
     public void unHook() {
-        hologram.save();
-        npc.save();
         PlayerData.getDataMap().values().forEach(PlayerData::save);
         DatabaseManager.getInstance().getClient().close();
     }
 
     public void registerUtilties() {
-        hologram = new Hologram();
-        npc = new NPC();
         serverData = new ServerData();
     }
 
@@ -86,31 +78,19 @@ public class FacebookRegister {
         new GrantProcedureListener();
         new FreezeListener();
         new CosmeticListeners();
+        new AuthListener();
     }
 
 
     public void registerTasks() {
         new MenuUpdateTask();
         new FreezeTask();
+        new MessageTask();
     }
 
-    private void registerConfigs() {
-        config = new ConfigFile(Facebook.getInstance(), "config.yml");
-    }
-
-    private void registerHoloFile() {
-        holograms = new ConfigFile(Facebook.getInstance(), "holograms.yml");
-        hologram = new Hologram();
-    }
-
-    public void registerNpcsFile() {
-        npcs = new ConfigFile(Facebook.getInstance(), "npcs.yml");
-        npc = new NPC();
-    }
 
     public void registerManagers() {
         new DatabaseManager();
-        new TipsManager();
     }
 
     private void setupCommandMap() {

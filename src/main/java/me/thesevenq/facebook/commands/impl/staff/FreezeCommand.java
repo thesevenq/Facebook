@@ -1,5 +1,6 @@
 package me.thesevenq.facebook.commands.impl.staff;
 
+import me.thesevenq.facebook.Facebook;
 import me.thesevenq.facebook.commands.BaseCommand;
 import me.thesevenq.facebook.utils.string.Color;
 import me.thesevenq.facebook.utils.string.MessageUtils;
@@ -28,7 +29,7 @@ public class FreezeCommand extends BaseCommand {
                         return;
                     }
 
-                    //Facebook.getInstance().getFreezeManager().handleFreezeServer(player);
+                    Facebook.getInstance().getFreezeManager().handleFreezeServer(player);
                 } else {
                     Player target = Bukkit.getPlayer(args[0]);
 
@@ -39,7 +40,7 @@ public class FreezeCommand extends BaseCommand {
                         return;
                     }
 
-                    //Facebook.getInstance().getFreezeManager().handleFreeze(player, target);
+                    Facebook.getInstance().getFreezeManager().handleFreeze(player, target);
                 }
             }
         }
